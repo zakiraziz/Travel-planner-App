@@ -1,74 +1,222 @@
 @import "tailwindcss";
 @import "uploadthing/tw/v4";
-@source "../node_modules/@uploadthing/react/dist"; /** <-- depends on your project structure */
+@import "../node_modules/@uploadthing/react/dist/styles.css";
+@import "../node_modules/@radix-ui/themes/styles.css";
 
 @theme inline {
+  /* Extended radius scale */
+  --radius-xs: calc(var(--radius) - 6px);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 4px);
+  --radius-3xl: calc(var(--radius) + 6px);
+  --radius-full: 9999px;
+
+  /* Semantic color mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  
+  /* Extended color palette */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: color-mix(in oklch, var(--primary), black 10%);
+  --color-primary-active: color-mix(in oklch, var(--primary), black 20%);
+  
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: color-mix(in oklch, var(--secondary), black 5%);
+  
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: oklch(0.85 0.2 70);
+  --color-warning-foreground: oklch(0.15 0 0);
+  --color-success: oklch(0.8 0.2 150);
+  --color-success-foreground: oklch(0.15 0 0);
+  
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-overlay: oklch(0 0 0 / 40%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :root {
+  /* Base design tokens */
   --radius: 0.625rem;
+  
+  /* Light theme colors */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
+  
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
+  
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
+  
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
+  
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
+  
   --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  
+  /* Extended colors */
+  --info: oklch(0.7 0.15 250);
+  --info-foreground: oklch(0.15 0 0);
 }
 
 .dark {
+  /* Dark theme colors */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
+  
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
+  
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
+  
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+  
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
+  
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
+  
   --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
+  
+  /* Extended dark colors */
+  --info: oklch(0.8 0.15 250);
+  --info-foreground: oklch(0.985 0 0);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    -webkit-tap-highlight-color: transparent;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-primary/30;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-in {
+    animation: animate-in var(--duration-normal) var(--ease-in-out);
+  }
+  
+  .animate-out {
+    animation: animate-out var(--duration-normal) var(--ease-in-out);
+  }
+  
+  @keyframes animate-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes animate-out {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(10px); }
+  }
+  
+  /* Extended ring utilities */
+  .ring-primary {
+    --tw-ring-color: var(--color-primary);
+  }
+  
+  .ring-destructive {
+    --tw-ring-color: var(--color-destructive);
+  }
+  
+  /* Custom shadows */
+  .shadow-border {
+    box-shadow: 0 0 0 1px var(--color-border);
+  }
+  
+  /* For dark mode support */
+  .dark .dark\:shadow-border-dark {
+    box-shadow: 0 0 0 1px var(--color-border);
+  }
+}
+
+/* UploadThing customizations */
+.uploadthing-dropzone {
+  @apply border-2 border-dashed border-accent bg-accent/10 hover:bg-accent/20 transition-colors;
+}
+
+.uploadthing-button {
+  @apply bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active;
+}
+
+.uploadthing-file-item {
+  @apply bg-card border-border shadow-sm hover:shadow-md transition-shadow;
+}
+
+/* Print styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .no-print {
+    display: none !important;
   }
 }
