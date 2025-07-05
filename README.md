@@ -21,3 +21,27 @@
 
 ## 🚀 Tech Stack
 
+**Frontend:**
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion (Animations)
+- Radix UI (Accessible components)
+- UploadThing (File uploads)
+
+**Backend:**
+- NextAuth.js (Authentication)
+- Prisma (ORM)
+- PostgreSQL (Database)
+- Vercel AI SDK (AI features)
+
+**Deployment:**
+- Vercel (Hosting)
+- GitHub Actions (CI/CD)
+
+## 🛠️ Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/tripplanner.git
+cd tripplanner
