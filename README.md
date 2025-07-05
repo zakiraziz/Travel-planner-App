@@ -1,12 +1,23 @@
-# React + Vite
+# TripPlanner 🌍✈️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-13+-black?logo=next.js)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3+-06B6D4?logo=tailwind-css)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+**Plan perfect trips effortlessly** - A modern travel itinerary planner with interactive maps, collaborative features, and AI-powered suggestions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![TripPlanner Screenshot](/public/images/screenshot.png)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🗺️ Interactive trip maps with route optimization
+- 📅 Day-by-day itinerary planning
+- 👥 Real-time collaboration with travel companions
+- 🏨 Accommodation & transportation management
+- 📱 Mobile-friendly responsive design
+- 🔍 AI-powered destination recommendations
+- 📊 Travel expense tracking
+- 📤 PDF/Google Maps export
+
+## 🚀 Tech Stack
+
